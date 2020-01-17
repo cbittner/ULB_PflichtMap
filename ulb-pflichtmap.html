@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+	
+	<title>Pflichtbezirke ULB</title>
+
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	
+	    <link rel="stylesheet" href="css/leaflet.css"/>
+	
+    <!--SEARCH --> <link rel="stylesheet" type="text/css" href="css/leaflet-search.css"/>
+
+    <script src="js/leaflet.js"></script>
+   
+    <!--SEARCH --> <script src="js/leaflet-search.js"></script>
+
+    <!--geometreien der Bezirke-->
+    <script src="js/reg-bez-koedue.js"></script>
+    <script src="js/reg-bez-koeln.js"></script>
+    <script src="js/Rheinprovinz.js"></script>
+    
+
+	<style>
+		html, body {
+			height: 100%;
+			margin: 0;
+		}
+		#map {
+			width: 800px;
+			height: 1000px;
+		}
+	</style>
+
+<!--SEARCH --> <style>
+.search-input {
+	font-family:Courier
+}
+.search-input,
+.leaflet-control-search {
+	max-width:400px;
+}
+</style>
+	
+</head>
+<body>
+
+<div id='map'></div>
+
+
+<script>
+	var map = L.map('map').setView([50.333333, 7.1], 8);
+
+	L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+	    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+	}).addTo(map);
+
+		var rheinprovinzStyle = {
+    "color": "#ff7800",
+    "weight": 5
+    };
+
+	var bezirkKoelnStyle = {
+    "color": "blue",
+    "weight": 5
+    };
+
+	var bezirkKoelnDueStyle = {
+    "color": "red",
+    "weight": 5
+    };
+
+	var rheinprovinzLayer = new L.GeoJSON(rheinprov,{
+         style:rheinprovinzStyle});       
+	rheinprovinzLayer.addTo(map);
+
+    var bezirKoelnDueLayer = new L.GeoJSON(koedue,{
+         style:bezirkKoelnDueStyle});       
+	bezirKoelnDueLayer.addTo(map);
+
+	var bezirKoelnLayer = new L.GeoJSON(koe,{
+         style:bezirkKoelnStyle});       
+	bezirKoelnLayer.addTo(map);
+
+
+	var overlays = {
+    "<span style='color: #ff7800; font-weight: bold;'>Preussische Rheinprovinz<br>bis 1945</span>": rheinprovinzLayer,
+    "<span style='color: red; font-weight: bold;'>Regierungsbezirke Köln & Düsseldorf<br>1946-1993 (8.Juni)": bezirKoelnDueLayer,
+    "<span style='color: blue; font-weight: bold;'>Regierungsbezirk Köln<br>ab 1993 (9. Juni) bis heute": bezirKoelnLayer 
+	};
+
+	L.control.layers(null, overlays, {collapsed:false}).addTo(map);
+
+	map.addControl( new L.Control.Search({
+		url: 'https://nominatim.openstreetmap.org/search?format=json&q={s}',
+		jsonpParam: 'json_callback',
+		propertyName: 'display_name',
+		propertyLoc: ['lat','lon'],
+		marker: L.circleMarker([0,0],{radius:30}),
+		autoCollapse: true,
+		autoType: false,
+		minLength: 2
+	}) );
+
+</script>
+
+
+
+</body>
+</html>
