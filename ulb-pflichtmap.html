@@ -96,10 +96,15 @@
 		jsonpParam: 'json_callback',
 		propertyName: 'display_name',
 		propertyLoc: ['lat','lon'],
-		marker: L.circleMarker([0,0],{radius:30}),
+		marker: L.circleMarker([0,0],{radius:10}),
 		autoCollapse: true,
 		autoType: false,
-		minLength: 2
+		minLength: 2,
+		zoom: 12,
+		firstTipSubmit: true,
+		collapsed: false,
+		textErr: 'nur vorgeschlagene Orte auswaehlen',
+		textPlaceholder: 'Ortssuche'
 	}) );
 
 </script>
