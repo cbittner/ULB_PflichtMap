@@ -27,8 +27,8 @@
 			margin: 0;
 		}
 		#map {
-			width: 800px;
-			height: 1000px;
+			width: 100%;
+			height: 100%;
 		}
 	</style>
 
@@ -52,7 +52,7 @@
 	var map = L.map('map').setView([50.333333, 7.1], 8);
 
 	L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-	    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+	    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors<br>Bezirksgrenzen: <a href="https://wambachers-osm.website/boundaries/">OSM boundaries</a><br>Rheinprovinz: HGIS Germany (Andreas Kunz, Leonhard Dietze) via <a href="https://geodata.lib.berkeley.edu/catalog/GHGIS1890PROVINCES">Berkeley Library</a><br>Datenverarbeitung & Design: <a href="https://www.ulb.uni-bonn.de/de/die-ulb/organisation-ansprechpartner/ansprechpartner-von-a-z/bittner">Christian Bittner (ULB Bonn)</a>'
 	}).addTo(map);
 
 		var rheinprovinzStyle = {
@@ -104,7 +104,7 @@
 		firstTipSubmit: true,
 		collapsed: false,
 		textErr: 'nur vorgeschlagene Orte auswaehlen',
-		textPlaceholder: 'Ortssuche'
+		textPlaceholder: 'Ort suchen'
 	}) );
 
 </script>
