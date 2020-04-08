@@ -2,7 +2,7 @@
 
 Web-Karte zur Darstellung der Pflicht-Sammelgebiete der ULB Bonn zu verschiedenen historischen Zeitpunkten
 
-- check out preview via https://htmlpreview.github.io/?https://github.com/cbittner82/ULB_PflichtMap/blob/master/ulb-pflichtmap.html
+- check out page via https://cbittner82.github.io/ULB_PflichtMap/
 
 ## data sources:
 
