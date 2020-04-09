@@ -19,3 +19,4 @@ Web-Karte zur Darstellung der Pflicht-Sammelgebiete der ULB Bonn zu verschiedene
 JavaScript Libraries:
  - lafletjs 1.6.0: https://leafletjs.com/download.html
  - leaflet-search: https://labs.easyblog.it/maps/leaflet-search/examples/geocoding-nominatim.html
+ - leaflet.FileLayer: https://github.com/makinacorpus/Leaflet.FileLayer
